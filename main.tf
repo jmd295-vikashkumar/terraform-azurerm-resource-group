@@ -2,36 +2,10 @@ terraform {
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
-      version = "~> 3.0"
     }
   }
 }
 
-provider "azurerm" {
-  subscription_id = var.subscription_id
-  features {}
-}
-
-variable "name" {
-  description = "The name of the resource group"
-  type        = string
-}
-
-variable "location" {
-  description = "Azure region where the resource group should be created"
-  type        = string
-}
-
-variable "subscription_id" {
-  description = "Azure Subscription Id"
-  type = string
-}
-
-variable "tags" {
-  description = "A map of tags to assign to the resource group"
-  type        = map(string)
-  default     = {}
-}
 
 resource "azurerm_resource_group" "this" {
   name     = var.name
